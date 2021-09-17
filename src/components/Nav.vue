@@ -52,14 +52,15 @@ import { betaAccess } from '../utils/users'
 export default {
   track() {
     analytics.identify(' {{user.id}} ', {
-        name: '{{user.username}}',
-        company: '{{user.company}}'
-      });
+      name: '{{user.username}}',
+      company: '{{user.company}}'
+      })
     analytics.page('Home', {
-      experiment: experiment.name,
-      flag: reporting.name,
-      value: reporting.value
-    });
+      headerColor: Flags.headerColor.getValue(),
+      ask: Flags.ask.isEnabled(),
+      show: Flags.show.isEnabled(),
+      isBeta: betaAccess()
+    })
   },
 
   data () {
