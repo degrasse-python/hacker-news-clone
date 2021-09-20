@@ -17,13 +17,8 @@ app.use(serveStatic(path.join(__dirname, 'dist')))
 
 //app.use(staticFileMiddleware);
 
-
-app.get('/', function (req, res) {
-  res.render(path.join(__dirname + '/dist/index.html'))
-})
-
 // view engine setup
-app.set('views', path.join(__dirname, 'src/views'))
+//app.set('views', path.join(__dirname, 'src/views'))
 // app.set('view engine', 'pug');
 
 // app.use(staticFileMiddleware);
