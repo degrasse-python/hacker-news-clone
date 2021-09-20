@@ -7,13 +7,12 @@ const serveStatic = require("serve-static")
 
 // start express server
 app = express()
+app.use(serveStatic(path.join(__dirname, '/dist')))
 app.use(history({
   disableDotRule: true,
   verbose: true,
   logger: console.log.bind(console)
-}))
-app.use(serveStatic(path.join(__dirname, '/dist')))
-
+}))s
 
 //app.use(staticFileMiddleware);
 
