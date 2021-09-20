@@ -6,7 +6,10 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "npm server.js"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "postinstall": "npm run build",
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -31,6 +34,8 @@
     "babel-jest": "^23.6.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "express": "^4.17.1",
+    "serve-static": "^1.14.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.6.10"
