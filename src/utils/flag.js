@@ -49,6 +49,10 @@ export const impressionHandler = (reporting, experiment) => {
       value: reporting.value
     }) 
   } else {
+    analytics.page('Hacker-News-Demo', {
+      flag: reporting.name,
+      value: reporting.value
+    }) 
     console.log('No experiment configured for flag ' + reporting.name + '. default value ' + reporting.value + ' was used')
   }
 }
