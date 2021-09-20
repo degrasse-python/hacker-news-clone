@@ -6,7 +6,7 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "npm run serve"
+    "start": "npm server.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
