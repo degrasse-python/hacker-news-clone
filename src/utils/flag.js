@@ -3,6 +3,7 @@ import { betaAccess, isLoggedIn, getCompany } from './users'
 
 export const Flags = {
   score: new Rox.Flag(false),
+  newLink: new Rox.Flag(true), 
   ask: new Rox.Flag(false),
   show: new Rox.Flag(false),
   headerColor: new Rox.Variant('is-dark', ['is-dark', 'is-primary', 'is-white'])
@@ -33,6 +34,7 @@ const options = {
   impressionHandler: impressionHandler
 }
 
+// Property
 Rox.setCustomBooleanProperty('isBetaUser', betaAccess())
 Rox.setCustomBooleanProperty('isLoggedIn', isLoggedIn())
 Rox.setCustomStringProperty('company', getCompany())

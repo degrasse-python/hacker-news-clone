@@ -7,6 +7,7 @@
       <b-navbar-item v-if="isBeta">
 
         <i>Beta tester</i>
+        
       </b-navbar-item>
       <b-navbar-item v-if="isDev">
 
@@ -50,7 +51,7 @@ import { mapState, mapActions } from 'vuex'
 import { betaAccess } from '../utils/users'
 
 export default {
-  track() {
+  track () {
     analytics.identify(' {{user.id}} ', {
       name: '{{user.username}}',
       company: '{{user.company}}'
@@ -62,7 +63,6 @@ export default {
       isBeta: betaAccess()
     })
   },
-
   data () {
     return {
       isDev: process.env.NODE_ENV === 'development',
