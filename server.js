@@ -18,8 +18,8 @@ app.get('/', function (req, res) {
   res.render(path.join(__dirname + '/dist/index.html'));
 });
 
-// TRY THIS NEXT view engine setup
-// app.set('views', path.join(__dirname, 'src/views'));
+// view engine setup
+app.set('views', path.join(__dirname, 'src/views'));
 // app.set('view engine', 'pug');
 
 // app.use(staticFileMiddleware);
