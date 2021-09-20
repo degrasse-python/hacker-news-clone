@@ -19,7 +19,7 @@ export const configurationFetchedHandler = fetcherResults => {
 export const impressionHandler = (reporting, experiment) => {
   if (experiment) {
     console.log('flag ' + reporting.name + ' value is ' + reporting.value + ', it is part of ' + experiment.name + ' experiment')
-    analytics.page('Home', {
+    analytics.page('Hacker-News-Demo', {
       experiment: experiment.name,
       flag: reporting.name,
       value: reporting.value
