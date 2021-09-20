@@ -1,24 +1,29 @@
 import Rox from 'rox-browser'
 import { betaAccess, isLoggedIn, getCompany } from './users'
-import Analytics from "@segment/analytics.js-core/build/analytics";
-import SegmentIntegration from "@segment/analytics.js-integration-segmentio";
+import Analytics from '@segment/analytics.js-core/build/analytics'
+import SegmentIntegration from '@segment/analytics.js-integration-segmentio'
 
 // Segment
-const analytics = new Analytics();
+const analytics = new Analytics()
 
 // add Segment's own integration ( or any other device mode integration ) 
-analytics.use(SegmentIntegration);
+analytics.use(SegmentIntegration)
 
 // define the integration settings object. 
 // Since we are using only Segment integration in this example, we only have 
 // "Segment.io" in the integrationSettings object
 const integrationSettings = {
-  "Segment.io": {
-    apiKey: "yMSQzmloOHzNHx7MPYyvxzL0wnRbJRyH",
+  'Segment.io': {
+    apiKey: 'yMSQzmloOHzNHx7MPYyvxzL0wnRbJRyH',
     retryQueue: true,
     addBundledMetadata: true
   }
-};
+}
+// init segment.io
+analytics.initialize(integrationSettings)
+
+// Happy tracking! 
+// analytics.track('');
 
 export const Flags = {
   score: new Rox.Flag(false),
