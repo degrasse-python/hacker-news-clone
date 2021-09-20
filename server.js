@@ -8,12 +8,13 @@ const path = require('path')
 
 // start express server
 app = express()
+app.use(serveStatic(path.join(__dirname, 'dist')))
+
 app.use(history({
   disableDotRule: true,
   verbose: true,
   logger: console.log.bind(console)
 }))
-app.use(serveStatic(path.join(__dirname, 'dist')))
 
 //app.use(staticFileMiddleware);
 
