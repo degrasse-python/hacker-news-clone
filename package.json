@@ -6,7 +6,7 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "yarn run serve"
+    "start": "npm run serve"
   },
   "dependencies": {
     "axios": "^0.19.0",
