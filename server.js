@@ -12,7 +12,7 @@ app.use(serveStatic(path.join(__dirname, 'dist')));
 app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'pug');
 
-//app.use(staticFileMiddleware);
+// app.use(staticFileMiddleware);
 app.use(history());
 
 const port = process.env.PORT || 80;
