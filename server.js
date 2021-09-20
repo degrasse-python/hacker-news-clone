@@ -2,7 +2,9 @@ const express = require('express');
 const serveStatic = require("serve-static");
 const history = require('connect-history-api-fallback');
 const path = require('path');
-const staticFileMiddleware = express.static(path.join(__dirname + '/dist'));
+
+
+//const staticFileMiddleware = express.static(path.join(__dirname + '/dist'));
 
 // start express server
 app = express();
@@ -11,8 +13,9 @@ app.use(history({
   verbose: true,
   logger: console.log.bind(console)
 }));
-app.use(staticFileMiddleware);
-// app.use(serveStatic(path.join(__dirname, 'dist')));
+app.use(serveStatic(path.join(__dirname, 'dist')));
+
+//app.use(staticFileMiddleware);
 
 
 app.get('/', function (req, res) {
