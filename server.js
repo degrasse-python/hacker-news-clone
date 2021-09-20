@@ -12,7 +12,7 @@ app.use(history({
   disableDotRule: true,
   verbose: true,
   logger: console.log.bind(console)
-}))s
+}))
 
 //app.use(staticFileMiddleware);
 
