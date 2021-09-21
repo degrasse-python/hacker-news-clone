@@ -18,10 +18,10 @@
       <b-navbar-item href="/">
         Hot
       </b-navbar-item>
-      <b-navbar-item v-if="ask" href="/ask">
+      <b-navbar-item id="ask" v-if="ask" href="/ask">
         Ask
       </b-navbar-item>
-      <b-navbar-item v-if="show" href="/show">
+      <b-navbar-item id="show" v-if="show" href="/show">
         Show
       </b-navbar-item>
     </template>
