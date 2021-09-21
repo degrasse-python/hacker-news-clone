@@ -14,7 +14,7 @@ analytics.use(SegmentIntegration)
 // "Segment.io" in the integrationSettings object
 const integrationSettings = {
   'Segment.io': {
-    apiKey: 'yMSQzmloOHzNHx7MPYyvxzL0wnRbJRyH',
+    apiKey: 'xJ64dheGnIeusujfFNQwNYQnkXcHEKuU',
     retryQueue: true,
     addBundledMetadata: true
   }
