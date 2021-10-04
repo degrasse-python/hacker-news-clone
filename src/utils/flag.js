@@ -62,10 +62,13 @@ const options = {
   impressionHandler: impressionHandler
 }
 
-// Property
+// Defined Properties
 Rox.setCustomBooleanProperty('isBetaUser', betaAccess())
 Rox.setCustomBooleanProperty('isLoggedIn', isLoggedIn())
 Rox.setCustomStringProperty('company', getCompany())
 
 Rox.register('default', Flags)
-Rox.setup('61117c2efca8decf560ff100', options)
+Rox.setup('61117c1f978899d272a714f2', options)
+
+
+
