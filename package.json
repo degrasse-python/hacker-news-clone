@@ -9,8 +9,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "postinstall": "npm run build",
-    "start": "node server.js",
-    "fakedata": "python3 ./fakeclicks.py"
+    "start": "node server.js"
   },
   "dependencies": {
     "@segment/analytics.js-core": "^4.1.11",
