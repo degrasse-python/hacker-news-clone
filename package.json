@@ -20,6 +20,7 @@
     "core-js": "^2.6.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mixpanel": "^0.13.0",
     "mixpanel-browser": "^2.41.0",
     "rox-browser": "4.8.6",
     "segment": "^0.1.3",
