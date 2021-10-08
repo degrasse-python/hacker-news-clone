@@ -1,12 +1,12 @@
 import Rox from 'rox-browser'
 import { betaAccess, isLoggedIn, getCompany } from './users'
-import mixpanel from 'mixpanel-browser';
+//import mixpanel from 'mixpanel-browser';
 // or with require() syntax:
-// const mixpanel = require('mixpanel-browser');
+const Mixpanel = require('mixpanel');
 
 // Enabling the debug mode flag is useful during implementation,
 // but it's recommended you remove it for production
-mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e', {debug: true}); 
+const mixpanel = Mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e'); 
 
 
 export const Flags = {
@@ -27,13 +27,13 @@ export const configurationFetchedHandler = fetcherResults => {
 export const impressionHandler = (reporting, experiment) => {
   if (experiment) {
     console.log('flag ' + reporting.name + ' value is ' + reporting.value + ', it is part of ' + experiment.name + ' experiment')
-    mixpanel.track('Hacker-News-Demo', {
+    mixpanel.track('Hacker-News-FM', {
       experiment: experiment.name,
       flag: reporting.name,
       value: reporting.value
     }) 
   } else {
-    mixpanel.track('Hacker-News-Demo', {
+    mixpanel.track('Hacker-News-FM', {
       flag: reporting.name,
       value: reporting.value
     }) 
