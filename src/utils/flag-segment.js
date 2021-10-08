@@ -1,13 +1,29 @@
 import Rox from 'rox-browser'
 import { betaAccess, isLoggedIn, getCompany } from './users'
-import mixpanel from 'mixpanel-browser';
-// or with require() syntax:
-const mixpanel = require('mixpanel-browser');
+import Analytics from '@segment/analytics.js-core/build/analytics'
+import SegmentIntegration from '@segment/analytics.js-integration-segmentio'
 
-// Enabling the debug mode flag is useful during implementation,
-// but it's recommended you remove it for production
-mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e', {debug: true}); 
+// Segment
+const analytics = new Analytics()
 
+// add Segment's own integration ( or any other device mode integration ) 
+analytics.use(SegmentIntegration)
+
+// define the integration settings object. 
+// Since we are using only Segment integration in this example, we only have 
+// "Segment.io" in the integrationSettings object
+const integrationSettings = {
+  'Segment.io': {
+    apiKey: 'xJ64dheGnIeusujfFNQwNYQnkXcHEKuU',
+    retryQueue: true,
+    addBundledMetadata: true
+  }
+}
+// init segment.io
+analytics.initialize(integrationSettings)
+
+// Happy tracking! 
+// analytics.track('');
 
 export const Flags = {
   score: new Rox.Flag(false),
@@ -27,13 +43,13 @@ export const configurationFetchedHandler = fetcherResults => {
 export const impressionHandler = (reporting, experiment) => {
   if (experiment) {
     console.log('flag ' + reporting.name + ' value is ' + reporting.value + ', it is part of ' + experiment.name + ' experiment')
-    mixpanel.track('Hacker-News-Demo', {
+    analytics.page('Hacker-News-Demo', {
       experiment: experiment.name,
       flag: reporting.name,
       value: reporting.value
     }) 
   } else {
-    mixpanel.track('Hacker-News-Demo', {
+    analytics.page('Hacker-News-Demo', {
       flag: reporting.name,
       value: reporting.value
     }) 
