@@ -20,15 +20,11 @@
       </b-navbar-item>
       <b-navbar-item id="ask" v-if="ask" href="/ask">
         Ask
-        <script type="text/javascript">  
-            mixpanel.track_links('#ask', 'Feature - Ask Click');
-        </script>  
+
       </b-navbar-item>
       <b-navbar-item id="show" v-if="show" href="/show">
         Show
-        <script type="text/javascript">  
-            mixpanel.track_links('#show', 'Feature - Ask Click');
-        </script>        
+        
       </b-navbar-item>
     </template>
     <template slot="end">
@@ -55,6 +51,9 @@ import Rox from 'rox-browser'
 import { Flags } from '../utils/flag'
 import { mapState, mapActions } from 'vuex'
 import { betaAccess } from '../utils/users'
+
+mixpanel.track_links('#ask', 'Feature - Ask Click');
+mixpanel.track_links('#show', 'Feature - Ask Click');
 
 export default {
   track () {
