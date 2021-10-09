@@ -52,8 +52,12 @@ import { Flags } from '../utils/flag'
 import { mapState, mapActions } from 'vuex'
 import { betaAccess } from '../utils/users'
 
-mixpanel.track_links('#ask', 'Feature - Ask Click');
-mixpanel.track_links('#show', 'Feature - Show Click');
+mixpanel.track_links('#ask', 'Feature - Ask Click', {
+  "clicks": 1
+});
+mixpanel.track_links('#show', 'Feature - Show Click'{
+  "clicks": 1
+});
 
 export default {
   track () {
