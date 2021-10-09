@@ -53,7 +53,7 @@ import { mapState, mapActions } from 'vuex'
 import { betaAccess } from '../utils/users'
 
 mixpanel.track_links('#ask', 'Feature - Ask Click');
-mixpanel.track_links('#show', 'Feature - Ask Click');
+mixpanel.track_links('#show', 'Feature - Show Click');
 
 export default {
   track () {
