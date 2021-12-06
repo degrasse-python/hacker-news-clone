@@ -62,7 +62,7 @@ mixpanel.track_links('#show', 'Feature - Show Click', {
 });
 
 export default {
-  /* 
+  
   track () {
     analytics.identify(' {{user.id}} ', {
       name: '{{user.username}}',
@@ -75,7 +75,7 @@ export default {
       isBeta: betaAccess()
     })
   },
-  */
+  
   data () {
     return {
       isDev: process.env.NODE_ENV === 'development',
