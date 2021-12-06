@@ -5,12 +5,9 @@
         <strong>HN</strong>
       </b-navbar-item>
       <b-navbar-item v-if="isBeta">
-
         <i>Beta tester</i>
-        
       </b-navbar-item>
       <b-navbar-item v-if="isDev">
-
         <span @click="rolloutOverride">DEV</span>
       </b-navbar-item>
     </template>
@@ -20,11 +17,9 @@
       </b-navbar-item>
       <b-navbar-item id="ask" v-if="ask" href="/ask">
         Ask
-
       </b-navbar-item>
       <b-navbar-item id="show" v-if="show" href="/show">
         Show
-        
       </b-navbar-item>
     </template>
     <template slot="end">
@@ -56,19 +51,19 @@ const mixpanel = Mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e')
 
 
 mixpanel.track_links('#ask', 'Feature - Ask Click', {
-  'clicks': 1,
-  ask: Flags.ask.isEnabled()
+  'clicks': 1
+  // ,ask: Flags.ask.isEnabled()
 });
 // Datadog with FM system
 // Performance analytics
 mixpanel.track_links('#show', 'Feature - Show Click', {
-  'clicks': 1,
-  ask: Flags.show.isEnabled()
+  'clicks': 1
+  //, ask: Flags.show.isEnabled()
 });
 
-
 export default {
-  /*track () {
+  /* 
+  track () {
     analytics.identify(' {{user.id}} ', {
       name: '{{user.username}}',
       company: '{{user.company}}'
@@ -79,7 +74,8 @@ export default {
       show: Flags.show.isEnabled(),
       isBeta: betaAccess()
     })
-  },*/
+  },
+  */
   data () {
     return {
       isDev: process.env.NODE_ENV === 'development',
