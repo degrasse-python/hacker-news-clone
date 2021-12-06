@@ -1,17 +1,16 @@
 import Rox from 'rox-browser'
-import { betaAccess, isLoggedIn, getCompany } from './users'
-//import mixpanel from 'mixpanel-browser';
+import { betaAccess, isLoggedIn, getCompany, getRegion } from './users'
+// import mixpanel from 'mixpanel-browser';
 // or with require() syntax:
-const Mixpanel = require('mixpanel');
+const Mixpanel = require('mixpanel')
 
 // Enabling the debug mode flag is useful during implementation,
 // but it's recommended you remove it for production
-const mixpanel = Mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e'); 
-
+const mixpanel = Mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e')
 
 export const Flags = {
   score: new Rox.Flag(false),
-  newLink: new Rox.Flag(true), 
+  newLink: new Rox.Flag(true),
   ask: new Rox.Flag(false),
   show: new Rox.Flag(false),
   headerColor: new Rox.Variant('is-dark', ['is-dark', 'is-primary', 'is-white'])
@@ -54,6 +53,3 @@ Rox.setCustomStringProperty('region', getRegion())
 
 Rox.register('default', Flags)
 Rox.setup('61117c1f978899d272a714f2', options)
-
-
-
