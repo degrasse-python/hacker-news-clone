@@ -41,12 +41,11 @@ export default {
         try {
           let postData = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${post}.json`)
           this.posts.push(postData.data)
-        } catch (err) {
-          console.log('Another thing happened', err)
-        }
+        } 
+      catch (err) {console.log('Another thing happened', err)}
       })
-    } catch (err) {
-      console.log('Something happened', err)
+    } 
+    catch (err) {console.log('Something happened', err)
     }
   }
 }
