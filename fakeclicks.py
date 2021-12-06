@@ -5,7 +5,7 @@ from celery import group
 
 from tasks import visit
 
-def producer(users=1000):
+def producer(users=100):
   """
   Create celery group of sig's for parallel processing
 

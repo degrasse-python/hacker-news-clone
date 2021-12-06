@@ -2,11 +2,14 @@
 from __future__ import absolute_import, unicode_literals
 import os
 import logging
+import uuid
 
 import environ
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
+from fake_useragent import UserAgent
+
 import numpy as np
 from celery import Celery
 from celery import (chord, 
@@ -95,11 +98,18 @@ def build_pipeline(**kwargs):
 
 @app.task
 def visit(site=SITE, data=data):
-
+  ua = UserAgent()
+  a = ua.random
+  user_agent = ua.random
   options = Options()
   options.headless = True
-  firefox_profile = webdriver.FirefoxProfile()
+  firefox_profile = webdriver.FirefoxProfile(set_proxy='20.94.229.106')
   firefox_profile.set_preference("browser.privatebrowsing.autostart", True)
+  uuid = uuid.uuid4()
+  # We set the coordinate of where we want to be.
+  firefox_profile.set_preference("geo.wifi.uri", 'data:application/json,{"location": {"lat": 38.912650, "lng":-77.036185}, "accuracy": 20.0}')
+  # This line is necessary to avoid to prompt for geolocation authorization.
+  firefox_profile.set_preference("geo.prompt.testing", True)
   driver = webdriver.Firefox(options=options, firefox_profile=firefox_profile)
   # open headless browser:
   driver.get(SITE)
