@@ -47,18 +47,18 @@ import Rox from 'rox-browser'
 import { Flags } from '../utils/flag'
 import { mapState, mapActions } from 'vuex'
 import { betaAccess } from '../utils/users'
-const Mixpanel = require('mixpanel')
-const mixpanel = Mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e')
+// const Mixpanel = require('mixpanel')
+// const mixpanel = Mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e')
 
 mixpanel.track_links('#ask', 'Feature - Ask Click', {
   'clicks': 1
-  // ,ask: Flags.ask.isEnabled()
+  ,ask: Flags.ask.isEnabled()
 });
 // Datadog with FM system
 // Performance analytics
 mixpanel.track_links('#show', 'Feature - Show Click', {
   'clicks': 1
-  // , ask: Flags.show.isEnabled()
+  , ask: Flags.show.isEnabled()
 });
 
 export default {
@@ -78,7 +78,8 @@ export default {
   
   data () {
     return {
-      isDev: process.env.NODE_ENV === 'development',
+      // isDev: process.env.NODE_ENV === 'development',
+      isDev: process.env.NODE_ENV === 'production',      
       headerColor: Flags.headerColor.getValue(),
       ask: Flags.ask.isEnabled(),
       show: Flags.show.isEnabled(),
