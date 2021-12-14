@@ -84,11 +84,12 @@ export default {
       headerColor: Flags.headerColor.getValue(),
       ask: Flags.ask.isEnabled(),
       show: Flags.show.isEnabled(),
-      isBeta: betaAccess(),
-      getRegion: getRegion(),
-      getCompany: getCompany()
+      isBeta: betaAccess()
+      // ,getRegion: getRegion()
+      // ,getCompany: getCompany()
     }
   },
+
   methods: {
     rolloutOverride: () => {
       Rox.showOverrides()
