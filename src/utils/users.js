@@ -3,21 +3,21 @@ export const userList = [
     username: 'betauser',
     password: 'betauser',
     company: 'acme global',
-    geo: 'JPN',
+    region: 'JPN',
     beta_access: true
   },
   {
     username: 'normaluser',
     password: 'normaluser',
     company: 'generic co',
-    geo: 'USA',
+    region: 'USA',
     beta_access: false
   },
   {
     username: 'eurouser',
     password: 'eurouser',
     company: 'USBC',
-    geo: 'WEURO',
+    region: 'WEURO',
     beta_access: false
   }
 ]
@@ -60,7 +60,7 @@ export const getRegion = () => {
   } else {
     let localUser = {}
     userList.map((user) => {
-      if (user.geo === localStorage.getItem('user')) {
+      if (user.region === localStorage.getItem('user')) {
         localUser = user
       }
     })
