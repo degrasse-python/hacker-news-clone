@@ -46,7 +46,7 @@
 import Rox from 'rox-browser'
 import { Flags } from '../utils/flag'
 import { mapState, mapActions } from 'vuex'
-import { betaAccess } from '../utils/users'
+import { betaAccess, getRegion, getCompany } from '../utils/users'
 // const Mixpanel = require('mixpanel')
 // const mixpanel = Mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e')
 
@@ -85,8 +85,8 @@ export default {
       ask: Flags.ask.isEnabled(),
       show: Flags.show.isEnabled(),
       isBeta: betaAccess()
-      // ,getRegion: getRegion()
-      // ,getCompany: getCompany()
+      ,getRegion: getRegion()
+      ,getCompany: getCompany()
     }
   },
 
