@@ -12,6 +12,13 @@ export const userList = [
     company: 'generic co',
     geo: 'USA',
     beta_access: false
+  },
+  {
+    username: 'eurouser',
+    password: 'eurouser',
+    company: 'USBC',
+    geo: 'WEURO',
+    beta_access: false
   }
 ]
 

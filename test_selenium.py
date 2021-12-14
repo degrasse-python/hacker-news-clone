@@ -25,12 +25,11 @@ ua = UserAgent()
 a = ua.random
 user_agent = ua.random
 options = Options()
-#options.headless = True
+# options.headless = True
 options.add_argument('--lang=en_US')
 options.add_argument("--enable-javascript")
 firefox_profile = webdriver.FirefoxProfile()
 
-#firefox_profile.set_preference("browser.privatebrowsing.autostart", True)
 firefox_profile.set_preference("javascript.enabled", True)
 uuid = uuid.uuid4()
 # We set the coordinate of where we want to be.

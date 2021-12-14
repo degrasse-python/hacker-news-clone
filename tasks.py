@@ -2,7 +2,7 @@
 from __future__ import absolute_import, unicode_literals
 import os
 import logging
-import uuid
+import time 
 
 import environ
 from selenium import webdriver
@@ -25,6 +25,7 @@ env = environ.Env(DEBUG=(bool, False))
 data = {'visits': 0,
         'ask_conversions': 0,
         'show_conversions': 0,}
+
 CELERYOPTIONS = {
     # Some subset of options
     "show_task_id": False,
@@ -102,25 +103,30 @@ def visit(site=SITE, data=data):
   a = ua.random
   user_agent = ua.random
   options = Options()
-  options.headless = True
-  firefox_profile = webdriver.FirefoxProfile(set_proxy='20.94.229.106')
+  # options.headless = True
+  options.add_argument('--lang=en_US')
+  options.add_argument("--enable-javascript")
+  firefox_profile = webdriver.FirefoxProfile()
   firefox_profile.set_preference("browser.privatebrowsing.autostart", True)
-  uuid = uuid.uuid4()
+  firefox_profile.set_preference("javascript.enabled", True)
   # We set the coordinate of where we want to be.
-  firefox_profile.set_preference("geo.wifi.uri", 'data:application/json,{"location": {"lat": 38.912650, "lng":-77.036185}, "accuracy": 20.0}')
+  # firefox_profile.set_preference("geo.wifi.uri", 'data:application/json,{"location": {"lat": 38.912650, "lng":-77.036185}, "accuracy": 20.0}')
   # This line is necessary to avoid to prompt for geolocation authorization.
   firefox_profile.set_preference("geo.prompt.testing", True)
   driver = webdriver.Firefox(options=options, firefox_profile=firefox_profile)
   # open headless browser:
   driver.get(SITE)
-  data['visits'] += 1
+  
+  # data['visits'] += 1
   try:
     driver.find_element_by_id('ask')
     sample_ask = np.random.normal(MU, SIGMA)
     if sample_ask > 0.5:
       #conversion
       driver.find_element_by_id("ask").click()
-      data['ask_conversions'] += 1 
+      # data['ask_conversions'] += 1 
+      print("ask_conversions")
+      time.sleep(3)
       driver.quit()
     else:
       driver.quit()
@@ -130,10 +136,12 @@ def visit(site=SITE, data=data):
       driver.quit()
     else:
       driver.find_element_by_id('show').click()
-      data['show_conversions'] += 1 
+      # data['show_conversions'] += 1 
+      print("show_conversions")
+      time.sleep(3)
       driver.quit()
 
-  print("visits: %s ask conversions: %s show_conversions: %s" % (data['visits'], data['ask_conversions'], data['show_conversions']))
+  # print("visits: %s ask conversions: %s show_conversions: %s" % (data['visits'], data['ask_conversions'], data['show_conversions']))
 
 
 def fakeclick(users=10000, data=data):
