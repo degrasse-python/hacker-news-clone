@@ -46,7 +46,7 @@ export const getCompany = () => {
   } else {
     let localUser = {}
     userList.map((user) => {
-      if (user.company === localStorage.getItem('user')) {
+      if (user.username === localStorage.getItem('user')) {
         localUser = user
       }
     })
@@ -60,7 +60,7 @@ export const getRegion = () => {
   } else {
     let localUser = {}
     userList.map((user) => {
-      if (user.region === localStorage.getItem('user')) {
+      if (user.username === localStorage.getItem('user')) {
         localUser = user
       }
     })
