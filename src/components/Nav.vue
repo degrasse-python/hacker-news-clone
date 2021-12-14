@@ -84,7 +84,9 @@ export default {
       headerColor: Flags.headerColor.getValue(),
       ask: Flags.ask.isEnabled(),
       show: Flags.show.isEnabled(),
-      isBeta: betaAccess()
+      isBeta: betaAccess(),
+      getRegion: getRegion(),
+      getCompany: getCompany()
     }
   },
   methods: {
