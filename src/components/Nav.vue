@@ -52,11 +52,13 @@ import { betaAccess, getRegion, getCompany } from '../utils/users'
 
 mixpanel.track_links('#ask', 'Feature - Ask Click', {
   'clicks': 1
+  // Add the flag state to analytics SDK
   ,ask: Flags.ask.isEnabled()
 });
+
 mixpanel.track_links('#show', 'Feature - Show Click', {
   'clicks': 1
-  , ask: Flags.show.isEnabled()
+  ,show: Flags.show.isEnabled()
 });
 
 
