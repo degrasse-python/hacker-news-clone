@@ -6,7 +6,7 @@ const Mixpanel = require('mixpanel')
 
 // Enabling the debug mode flag is useful during implementation,
 // but it's recommended you remove it for production
-const mixpanel = Mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e')
+const mixpanel = Mixpanel.init(process.env.MIXPANEL_KEY)
 
 
 export const Flags = {
