@@ -4,7 +4,7 @@ metadata:
 spec:
   containers:
     - name: node
-      image: node:14-alpine
+      image: node:lts-bullseye-slim
       command:
         - cat
       tty: true

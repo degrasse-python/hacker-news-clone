@@ -4,7 +4,7 @@
 //def githubCredentialId = env.
 
 pipeline {
-    agent any /*{
+    agent {label 'k8s-agent-test'} /*{
         kubernetes {
           label 'npm-builder'
           yaml podYaml
