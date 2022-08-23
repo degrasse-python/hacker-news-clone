@@ -4,12 +4,12 @@ def podYaml = libraryResource '/ci/pod-template.yml'
 //def githubCredentialId = env.
 
 pipeline {
-    agent {
+    agent any /*{
         kubernetes {
           label 'npm-builder'
           yaml podYaml
         }
-    }
+    }*/
     environment {
         CI = 'true'
         /* repoOwner = "${repoOwner}"
@@ -19,9 +19,10 @@ pipeline {
         */
     }
     stages {
-        stage('echo envs') {
+        stage('Print') {
             steps {
               echo "env:  ${env.getEnvironment()}"
+              sh "pwd"
             }
         }
         stage('Build') {
