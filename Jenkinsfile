@@ -1,4 +1,4 @@
-def podYaml = libraryResource './ci/pod-template.yml'
+def podYaml = libraryResource '/ci/pod-template.yml'
 def repoOwner = env.
 def repo = env.
 def githubCredentialId = env.
