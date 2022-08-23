@@ -1,8 +1,10 @@
+def podYaml = libraryResource './ci/pod-template.yml'
+
 pipeline {
     agent {
-        docker {
-            image 'node:lts-buster-slim'
-            args '-p 3000:3000'
+        kubernetes {
+          label 'npm-builder'
+          yaml podYaml
         }
     }
     environment {
@@ -19,6 +21,17 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
+        stage('Preview environment') {
+          when {
+            allOf {
+              not { triggeredBy 'EventTriggerCause' }
+              branch 'pr-*'
+              anyOf {
+                changeset "${changesetDir}/**"
+                triggeredBy 'UserIdCause'
+              }
+            }
+        }
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
@@ -26,4 +39,5 @@ pipeline {
             }
         }
     }
+  }
 }
