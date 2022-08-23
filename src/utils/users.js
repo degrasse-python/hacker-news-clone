@@ -1,3 +1,5 @@
+
+// Fake user data
 export const userList = [
   {
     username: 'betauser',
@@ -22,6 +24,8 @@ export const userList = [
   }
 ]
 
+
+// Helper functions to pass fake user data
 export const betaAccess = () => {
   if (localStorage.getItem('user') === null) {
     return false
