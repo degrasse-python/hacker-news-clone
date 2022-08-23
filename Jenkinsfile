@@ -1,7 +1,7 @@
 def podYaml = libraryResource '/ci/pod-template.yml'
-def repoOwner = env.
-def repo = env.
-def githubCredentialId = env.
+//def repoOwner = env.
+//def repo = env.
+//def githubCredentialId = env.
 
 pipeline {
     agent {
@@ -12,10 +12,11 @@ pipeline {
     }
     environment {
         CI = 'true'
-        repoOwner = "${repoOwner}"
+        /* repoOwner = "${repoOwner}"
         repo = "${repo}"
         githubCredentialId = "${githubCredentialId}"
         credId = "${githubCredentialId}"
+        */
     }
     stages {
         stage('echo envs') {
