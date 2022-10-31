@@ -1,4 +1,5 @@
 <template>
+  
   <b-navbar :type="headerColor" id="nav">
     <template slot="brand">
       <b-navbar-item href="/">
@@ -36,14 +37,16 @@
     </template>
   </b-navbar>
 </template>
+
 <style lang="stylus">
+
 #nav {
   margin-bottom: 15px
 }
 </style>
 
 <script>
-
+/* eslint-disable */
 import Rox from 'rox-browser'
 import { Flags } from '../utils/flag'
 import { mapState, mapActions } from 'vuex'
@@ -52,7 +55,7 @@ import { betaAccess, getRegion, getCompany } from '../utils/users'
 // const mixpanel = Mixpanel.init('d1396f58aa0a75bbad61e86cc4789c0e')
 
 // call mixpanel sdk
-// A/B Testing
+/* A/B Testing
 platform.track_links(
   // payload
   '#ask', 'Feature - Ask Click', 
@@ -61,7 +64,6 @@ platform.track_links(
       ,ask: Flags.ask.isEnabled() 
   });
 
-
 mixpanel.track_links(
   '#show', 'Feature - Show Click', 
   // payload
@@ -69,9 +71,7 @@ mixpanel.track_links(
     'clicks': 1
     ,show: Flags.show.isEnabled() // place a flag call in this payload
   });
-
-
-
+*/
 
 export default {
   

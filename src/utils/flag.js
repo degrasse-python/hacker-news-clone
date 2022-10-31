@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Rox from 'rox-browser'
 import { betaAccess, isLoggedIn, getCompany, getRegion } from './users'
 // import mixpanel from 'mixpanel-browser';
@@ -14,10 +15,14 @@ export const Flags = {
   newLink: new Rox.Flag(true), // 
   ask: new Rox.Flag(false), // flagA
   show: new Rox.Flag(false), // flagB
+  button: new Rox.Variant('is-dark', 
+                          ['is-dark']),
   // already setup their SDK in their codebase: prod, test, dev
   flagA: new Rox.Flag(false),
   flagB: new Rox.Flag(false), 
-  headerColor: new Rox.Variant('is-dark', ['is-dark', 'is-primary', 'is-white'])
+  headerColor: new Rox.Variant('is-dark', 
+                              ['is-dark', 'is-primary', 
+                              'is-white', 'default', 'dark'])
 }
 
 export const configurationFetchedHandler = fetcherResults => {
@@ -58,8 +63,6 @@ const options = {
 Rox.setCustomBooleanProperty('isBetaUser', betaAccess())
 Rox.setCustomBooleanProperty('isLoggedIn', isLoggedIn())
 Rox.setCustomStringProperty('company', getCompany())
-Rox.setCustomStringProperty('payload', getAttr())
-Rox.setCustomStringProperty('featureOne', getfeatureOne())
 Rox.setCustomStringProperty('region', getRegion())
 
 Rox.register('default', Flags)

@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 // Fake user data
 export const userList = [
   {

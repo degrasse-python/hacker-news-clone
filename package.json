@@ -16,6 +16,7 @@
     "@segment/analytics.js-integration-segmentio": "^4.4.7",
     "axios": "^0.19.0",
     "buefy": "^0.8.2",
+    "@cloudbees/honeyui": "^2.12.4",
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^2.6.5",
     "dotenv": "^8.2.0",
@@ -35,6 +36,8 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.10.0",
+    "@cloudbees/honeyui": "^2.12.4",
+    "@cloudbees/react-honeyui": "^2.12.4",
     "@vue/cli-plugin-unit-jest": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
     "@vue/eslint-config-standard": "^4.0.0",
